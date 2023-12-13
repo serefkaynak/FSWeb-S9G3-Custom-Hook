@@ -3,10 +3,12 @@ import axios from "axios";
 
 import Charts from "./components/Charts";
 import Navbar from "./components/Navbar";
+import geceModuAc from "./hooks/geceModuAc";
+
 
 const App = () => {
   const [coinData, setCoinData] = useState([]);
-  const [geceModu, setGeceModu] = useState(false);
+  const [geceModu, setGeceModu] = geceModuAc();
 
   useEffect(() => {
     axios
@@ -16,6 +18,7 @@ const App = () => {
       .then(res => setCoinData(res.data))
       .catch(err => console.log(err));
   }, []);
+  
   return (
     <div className={geceModu ? "dark-mode App" : "App"}>
       <Navbar geceModu={geceModu} setGeceModu={setGeceModu} />

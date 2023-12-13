@@ -1,4 +1,6 @@
 import React from 'react';
+import { useDarkMode } from '../hooks/geceModuAc';
+ 
 
 const Navbar = (props) => {
   const toggleMode = e => {
